@@ -40,7 +40,7 @@ public class CustomerController {
 	
 	//get customer by username rest api
 	@GetMapping("/customers/{username}")
-	public ResponseEntity<Customer> getECustomerByUsername(@PathVariable String username) {
+	public ResponseEntity<Customer> getCustomerByUsername(@PathVariable String username) {
 		Customer customer  = customerRepository.findById(username).orElseThrow(() -> new ResourceNotFoundException("Username does not exist"));
 		return ResponseEntity.ok(customer);
 	}

@@ -51,7 +51,7 @@ public class Movie {
 	
 	@Lob
 	@Column(name = "poster")
-	private Byte[] poster;
+	private byte[] poster;
 	
 	
 	public Movie(){
@@ -59,7 +59,7 @@ public class Movie {
 	}
 
 	public Movie(int movie_id, String movie_name, String director, int duration, Date release_date, String genre,
-			String language, String subtitle, String actors, String synopsis, String distributor, Byte[] poster) {
+			String language, String subtitle, String actors, String synopsis, String distributor, byte[] poster) {
 		super();
 		this.movie_id = movie_id;
 		this.movie_name = movie_name;
@@ -164,11 +164,11 @@ public class Movie {
 		this.distributor = distributor;
 	}
 
-	public Byte[] getPoster() {
+	public byte[] getPoster() {
 		return poster;
 	}
 
-	public void setPoster(Byte[] poster) {
+	public void setPoster(byte[] poster) {
 		this.poster = poster;
 	}
 	
