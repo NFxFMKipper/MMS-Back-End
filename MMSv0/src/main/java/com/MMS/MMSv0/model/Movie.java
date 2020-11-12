@@ -53,6 +53,13 @@ public class Movie {
 	@Column(name = "poster")
 	private byte[] poster;
 	
+	/*
+	@OneToOne(mappedBy = "Movie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Screen screen;
+	
+	@OneToOne(mappedBy = "Movie", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+	private Shows shows;
+	*/
 	
 	public Movie(){
 		
