@@ -6,17 +6,17 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ScreenShape")
-public class ScreenShape {
-	
+@Table(name = "ScreenRow")
+public class Rows {
+
 	@Id
-	private int screenShapeId;
+	private int rowId;
 	
 	@Column(name = "screen_id")
 	private int screenId;
 	
 	@Column(name = "class_id")
-	private int cassId;
+	private int classId;
 	
 	@Column(name = "no_of_seats_left")
 	private int noLeft;
@@ -27,26 +27,28 @@ public class ScreenShape {
 	@Column(name = "no_of_seats_right")
 	private int noRight;
 
-	public ScreenShape() {
-		super();
+	
+	
+	public Rows() {
+		
 	}
 
-	public ScreenShape(int screenShapeId, int screenId, int cassId, int noLeft, int noMiddle, int noRight) {
+	public Rows(int rowId, int screenId, int classId, int noLeft, int noMiddle, int noRight) {
 		super();
-		this.screenShapeId = screenShapeId;
+		this.rowId = rowId;
 		this.screenId = screenId;
-		this.cassId = cassId;
+		this.classId = classId;
 		this.noLeft = noLeft;
 		this.noMiddle = noMiddle;
 		this.noRight = noRight;
 	}
 
-	public int getScreenShapeId() {
-		return screenShapeId;
+	public int getRowId() {
+		return rowId;
 	}
 
-	public void setScreenShapeId(int screenShapeId) {
-		this.screenShapeId = screenShapeId;
+	public void setRowId(int rowId) {
+		this.rowId = rowId;
 	}
 
 	public int getScreenId() {
@@ -57,12 +59,12 @@ public class ScreenShape {
 		this.screenId = screenId;
 	}
 
-	public int getCassId() {
-		return cassId;
+	public int getclassId() {
+		return classId;
 	}
 
-	public void setCassId(int cassId) {
-		this.cassId = cassId;
+	public void setclassId(int classId) {
+		this.classId = classId;
 	}
 
 	public int getNoLeft() {
@@ -88,6 +90,7 @@ public class ScreenShape {
 	public void setNoRight(int noRight) {
 		this.noRight = noRight;
 	}
+	
 	
 	
 }
