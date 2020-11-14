@@ -3,9 +3,9 @@ package com.MMS.MMSv0.repository;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import com.MMS.MMSv0.model.Rows;
+import com.MMS.MMSv0.model.Shapes;
 
 @Repository
-public interface RowsRepository extends JpaRepository<Rows, Integer>{
+public interface ShapesRepository extends JpaRepository<Shapes, Integer>{
 
 }

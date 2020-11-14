@@ -34,7 +34,7 @@ public class Movie {
 	@Column(name = "genre")
 	private String genre;
 	
-	@Column(name = "languagee")
+	@Column(name = "language")
 	private String language;
 	
 	@Column(name = "subtitle")

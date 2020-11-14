@@ -2,14 +2,17 @@ package com.MMS.MMSv0.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "ScreenRow")
-public class Rows {
+@Table(name = "Shapes")
+public class Shapes {
 
 	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int rowId;
 	
 	@Column(name = "screen_id")
@@ -29,11 +32,11 @@ public class Rows {
 
 	
 	
-	public Rows() {
+	public Shapes() {
 		
 	}
 
-	public Rows(int rowId, int screenId, int classId, int noLeft, int noMiddle, int noRight) {
+	public Shapes(int rowId, int screenId, int classId, int noLeft, int noMiddle, int noRight) {
 		super();
 		this.rowId = rowId;
 		this.screenId = screenId;

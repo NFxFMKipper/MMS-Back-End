@@ -8,23 +8,23 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.MMS.MMSv0.model.Rows;
-import com.MMS.MMSv0.repository.RowsRepository;
+import com.MMS.MMSv0.model.Shapes;
+import com.MMS.MMSv0.repository.ShapesRepository;
 
 @CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1/")
-public class RowsController {
+public class ShapesController {
 
 	@Autowired
-	private RowsRepository rowsRepository;
+	private ShapesRepository shapesRepository;
 	
 	//get all rows
-	@GetMapping("/rows")
-	public List<Rows> getAllCustomers(){
-		if(rowsRepository.findAll() == null)
-			System.out.print(rowsRepository.findAll());
-		System.out.print(rowsRepository.findAll());
-		return rowsRepository.findAll();
+	@GetMapping("/shapes")
+	public List<Shapes> getAllScreenRows(){
+		if(shapesRepository.findAll() == null)
+			System.out.print(shapesRepository.findAll());
+		System.out.print(shapesRepository.findAll());
+		return shapesRepository.findAll();
 	}
 }
