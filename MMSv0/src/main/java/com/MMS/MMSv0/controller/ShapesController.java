@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,9 +23,13 @@ public class ShapesController {
 	//get all rows
 	@GetMapping("/shapes")
 	public List<Shapes> getAllScreenRows(){
-		if(shapesRepository.findAll() == null)
-			System.out.print(shapesRepository.findAll());
-		System.out.print(shapesRepository.findAll());
 		return shapesRepository.findAll();
 	}
+	
+	//get screen rows by shape
+	@GetMapping("/shapes/{screenId}")
+	public List<Shapes> getAllScreenRowsByScreen(@PathVariable int screenId){
+		return shapesRepository.findByScreenId(screenId);
+	}
+	
 }

@@ -8,14 +8,13 @@ import java.util.HashSet;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.MMS.MMSv0.exception.ResourceNotFoundException;
+
 import com.MMS.MMSv0.model.Shows;
 import com.MMS.MMSv0.repository.ShowsRepository;
 
@@ -30,7 +29,6 @@ public class ShowsController {
 	//get all shows
 	@GetMapping("/shows")
 	public List<Shows> getAllShows(){
-		System.out.print(showsRepository.findAll());
 		return showsRepository.findAll();
 	}
 	
@@ -67,5 +65,14 @@ public class ShowsController {
 			resTimes.add(time);
 		Collections.sort(resTimes);
 		return resTimes;
+	}
+	
+	@GetMapping("/screen/{movieId}/{showDay}")
+	public int getScreenByMovieAndDate(@PathVariable int movieId, @PathVariable Date showDay) {
+		List<Shows> list = showsRepository.findByMovieIdAndShowDay(movieId, showDay);
+		int screenId;
+		Shows show = list.get(0);
+		screenId = show.getScreenId();
+		return screenId;
 	}
 }

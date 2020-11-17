@@ -30,13 +30,14 @@ public class Shapes {
 	@Column(name = "no_of_seats_right")
 	private int noRight;
 
-	
-	
+	@Column(name = "row_alph")
+	private String rowAlph;
+
 	public Shapes() {
-		
+		// TODO Auto-generated constructor stub
 	}
 
-	public Shapes(int rowId, int screenId, int classId, int noLeft, int noMiddle, int noRight) {
+	public Shapes(int rowId, int screenId, int classId, int noLeft, int noMiddle, int noRight, String rowAlph) {
 		super();
 		this.rowId = rowId;
 		this.screenId = screenId;
@@ -44,6 +45,7 @@ public class Shapes {
 		this.noLeft = noLeft;
 		this.noMiddle = noMiddle;
 		this.noRight = noRight;
+		this.rowAlph = rowAlph;
 	}
 
 	public int getRowId() {
@@ -62,11 +64,11 @@ public class Shapes {
 		this.screenId = screenId;
 	}
 
-	public int getclassId() {
+	public int getClassId() {
 		return classId;
 	}
 
-	public void setclassId(int classId) {
+	public void setClassId(int classId) {
 		this.classId = classId;
 	}
 
@@ -93,6 +95,16 @@ public class Shapes {
 	public void setNoRight(int noRight) {
 		this.noRight = noRight;
 	}
+
+	public String getRowAlph() {
+		return rowAlph;
+	}
+
+	public void setRowAlph(String rowAlph) {
+		this.rowAlph = rowAlph;
+	}
+	
+	
 	
 	
 	
