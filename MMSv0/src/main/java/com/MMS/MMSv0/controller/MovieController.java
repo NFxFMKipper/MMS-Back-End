@@ -3,7 +3,7 @@ package com.MMS.MMSv0.controller;
 
 
 import java.util.List;
-
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.io.ByteArrayResource;
@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.MMS.MMSv0.exception.ResourceNotFoundException;
 import com.MMS.MMSv0.model.Movie;
+import com.MMS.MMSv0.model.Shows;
 import com.MMS.MMSv0.repository.MovieRepository;
 
 @CrossOrigin(origins = "http://localhost:3000")
@@ -32,6 +33,13 @@ public class MovieController {
 	@GetMapping("/movies")
 	public List<Movie> getAllMovies(){
 		return movieRepository.findAll();
+	}
+	
+	@GetMapping("/movies/name/{movieId}")
+	public String getMovieByShow(@PathVariable int movieId) {
+		Optional<Movie> list = movieRepository.findById(movieId);
+		Movie movie1 = list.get();
+		return movie1.getMovieName();
 	}
 	
 	//get image

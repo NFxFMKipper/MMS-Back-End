@@ -6,15 +6,18 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-
+import com.MMS.MMSv0.exception.ResourceNotFoundException;
+import com.MMS.MMSv0.model.Customer;
 import com.MMS.MMSv0.model.Shows;
 import com.MMS.MMSv0.repository.ShowsRepository;
 
@@ -26,10 +29,18 @@ public class ShowsController {
 	@Autowired
 	private ShowsRepository showsRepository;
 	
+	
 	//get all shows
 	@GetMapping("/shows")
 	public List<Shows> getAllShows(){
 		return showsRepository.findAll();
+	}
+	
+	@GetMapping("/movieId/{showId}")
+	public int getMovieByShow(@PathVariable int showId) {
+		Optional<Shows> list = showsRepository.findById(showId);
+		Shows show = list.get();
+		return show.getMovieId();
 	}
 	
 	@GetMapping("/shows/{movieId}")
@@ -74,5 +85,11 @@ public class ShowsController {
 		Shows show = list.get(0);
 		screenId = show.getScreenId();
 		return screenId;
+	}
+	
+	@GetMapping("/show/{showId}")
+	public ResponseEntity<Shows> getScreenByShowId(@PathVariable int showId) {
+		Shows shows = showsRepository.findById(showId).orElseThrow(() -> new ResourceNotFoundException("Show does not exist"));
+		return ResponseEntity.ok(shows);
 	}
 }

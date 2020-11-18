@@ -15,7 +15,7 @@ public class Ticket {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int ticketNo;
+	private Long ticketNo;
 	
 	@Column(name = "show_id")
 	private int showId;
@@ -42,7 +42,7 @@ public class Ticket {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Ticket(int ticketNo, int showId, int noSeats, int totalPrice, Date ticketDay, Date bookingDay, Boolean paid,
+	public Ticket(Long ticketNo, int showId, int noSeats, int totalPrice, Date ticketDay, Date bookingDay, Boolean paid,
 			Boolean cancelled) {
 		super();
 		this.ticketNo = ticketNo;
@@ -55,11 +55,11 @@ public class Ticket {
 		this.cancelled = cancelled;
 	}
 
-	public int getTicketNo() {
+	public Long getTicketNo() {
 		return ticketNo;
 	}
 
-	public void setTicketNo(int ticketNo) {
+	public void setTicketNo(Long ticketNo) {
 		this.ticketNo = ticketNo;
 	}
 
